@@ -1,0 +1,23 @@
+1. Display job id of jobs that were done by more than 3 employees for more than 100 days.
+
+SELECT job_id
+FROM jobs
+WHERE 
+GROUP BY job_id
+HAVING COUNT(DISTINCT job_id) > 3;
+
+
+2. Display departments where any manager is managing more than 5 employees.
+
+SELECT d.department_name
+FROM departments d
+INNER JOIN employees e ON d.manager_id = e.manager_id
+GROUP BY d.department_name
+HAVING COUNT(e.manager_id) > 5;
+
+
+3. Display how many employees joined in each month of the current year.
+
+SELECT EMPLOYEE_ID, FIRST_NAME
+FROM EMPLOYEES
+WHERE HIRE_DATE > '01-01-2024';
